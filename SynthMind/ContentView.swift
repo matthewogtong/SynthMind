@@ -53,7 +53,7 @@ struct ContentView: View {
                 Spacer()
             }
             Text(message.content)
-                .foregroundColor(message.sender == .me ? .white : .black)
+                .foregroundColor(.white)
                 .padding()
                 .background(message.sender == .me ? .blue : .gray.opacity(0.1))
                 .cornerRadius(12)
