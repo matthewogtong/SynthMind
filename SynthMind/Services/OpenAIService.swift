@@ -14,11 +14,10 @@ class OpenAIService {
     func sendMessage(message: String) {
         let body = OpenAICompletionsBody(model: "text-davinci-003", prompt: message, temperature: 0.7)
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer \(String(describing: Constants.openAIAPIKey))"
+            "Authorization": "Bearer \(String(describing: Constants.openAIAPIKey!))"
         ]
-        
-        AF.request(baseUrl + "completions", method: .post, parameters: body, encoder: .json, headers: headers).response { data in
-            print(data)
+        AF.request(baseUrl + "completions", method: .post, parameters: body, encoder: .json, headers: headers).responseString { data in
+            print(data.result)
         }
     }
 }

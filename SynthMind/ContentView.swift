@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @State var chatMessages: [ChatMessage] = ChatMessage.sampleMessages
     @State var messageText: String = ""
+    let openAIService = OpenAIService()
     
     var body: some View {
         VStack {
@@ -41,6 +42,9 @@ struct ContentView: View {
             }
         }
         .padding()
+        .onAppear {
+            openAIService.sendMessage(message: "Tell me an original idea for an anime")
+        }
     }
     
     func messageView(message: ChatMessage) -> some View {
