@@ -8,5 +8,5 @@
 import Foundation
 
 enum Constants {
-    static let openAIAPIKey = ProcessInfo.processInfo.environment["OpenAI_API_Key"]
+    
 }

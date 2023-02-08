@@ -16,8 +16,6 @@
 		FE5B48082993174C0048D00C /* SynthMindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B48072993174C0048D00C /* SynthMindUITestsLaunchTests.swift */; };
 		FE5B481629931ED20048D00C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B481529931ED20048D00C /* ChatMessage.swift */; };
 		FE5B48192993269B0048D00C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B48182993269B0048D00C /* Constants.swift */; };
-		FE5B481C29932CBA0048D00C /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B481B29932CBA0048D00C /* OpenAIService.swift */; };
-		FE5B4821299406690048D00C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE5B4820299406690048D00C /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +48,6 @@
 		FE5B48072993174C0048D00C /* SynthMindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMindUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FE5B481529931ED20048D00C /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		FE5B48182993269B0048D00C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FE5B481B29932CBA0048D00C /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE5B4821299406690048D00C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +153,6 @@
 		FE5B481A299326C30048D00C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FE5B481B29932CBA0048D00C /* OpenAIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -178,9 +173,6 @@
 			dependencies = (
 			);
 			name = SynthMind;
-			packageProductDependencies = (
-				FE5B4820299406690048D00C /* Alamofire */,
-			);
 			productName = SynthMind;
 			productReference = FE5B47E72993174A0048D00C /* SynthMind.app */;
 			productType = "com.apple.product-type.application";
@@ -253,9 +245,6 @@
 				Base,
 			);
 			mainGroup = FE5B47DE2993174A0048D00C;
-			packageReferences = (
-				FE5B481F299406690048D00C /* XCRemoteSwiftPackageReference "Alamofire" */,
-			);
 			productRefGroup = FE5B47E82993174A0048D00C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -300,7 +289,6 @@
 			files = (
 				FE5B481629931ED20048D00C /* ChatMessage.swift in Sources */,
 				FE5B47ED2993174A0048D00C /* ContentView.swift in Sources */,
-				FE5B481C29932CBA0048D00C /* OpenAIService.swift in Sources */,
 				FE5B47EB2993174A0048D00C /* SynthMindApp.swift in Sources */,
 				FE5B48192993269B0048D00C /* Constants.swift in Sources */,
 			);
@@ -393,7 +381,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OpenAI_API_Key = "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";
+				OpenAI_API_KEY = "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";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -447,7 +435,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OpenAI_API_Key = "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";
+				OpenAI_API_KEY = "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";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -631,25 +619,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		FE5B481F299406690048D00C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FE5B4820299406690048D00C /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FE5B481F299406690048D00C /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FE5B47DF2993174A0048D00C /* Project object */;
 }
