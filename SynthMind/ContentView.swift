@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     
-    @State var chatMessages: [ChatMessage] = ChatMessage.sampleMessages
+    @State var chatMessages: [ChatMessage] = []
     @State var messageText: String = ""
+    @State var cancellables = Set<AnyCancellable>()
+    
     let openAIService = OpenAIService()
     
     var body: some View {
@@ -26,9 +29,9 @@ struct ContentView: View {
                 TextField("Enter a message", text: $messageText) {
                     
                 }
-                    .padding()
-                    .background(.gray.opacity(0.1))
-                    .cornerRadius(12)
+                .padding()
+                .background(.gray.opacity(0.1))
+                .cornerRadius(12)
                 Button {
                     sendMessage()
                 } label: {
@@ -61,8 +64,18 @@ struct ContentView: View {
     }
     
     func sendMessage() {
+        let myMessage = ChatMessage(id: UUID().uuidString, content: messageText, dateCreated: Date(), sender: .me)
+        chatMessages.append(myMessage)
+        openAIService.sendMessage(message: messageText).sink { completion in
+            // handle error
+        } receiveValue: { response in
+            guard let textResponse = response.choices.first?.text.trimmingCharacters(in: .whitespacesAndNewlines.union(.init(charactersIn: "\""))) else { return }
+            let gptMessage = ChatMessage(id: response.id, content: textResponse, dateCreated: Date(), sender: .gpt)
+            chatMessages.append(gptMessage)
+        }
+        .store(in: &cancellables)
+        
         messageText = ""
-        print(messageText)
     }
 }
 
