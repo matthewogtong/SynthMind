@@ -14,6 +14,10 @@
 		FE5B47FC2993174C0048D00C /* SynthMindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B47FB2993174C0048D00C /* SynthMindTests.swift */; };
 		FE5B48062993174C0048D00C /* SynthMindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B48052993174C0048D00C /* SynthMindUITests.swift */; };
 		FE5B48082993174C0048D00C /* SynthMindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B48072993174C0048D00C /* SynthMindUITestsLaunchTests.swift */; };
+		FE5B481629931ED20048D00C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B481529931ED20048D00C /* ChatMessage.swift */; };
+		FE5B48192993269B0048D00C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B48182993269B0048D00C /* Constants.swift */; };
+		FE5B482429940AD60048D00C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FE5B482329940AD60048D00C /* Alamofire */; };
+		FE5B482929940B610048D00C /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B482829940B610048D00C /* OpenAIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		FE5B48012993174C0048D00C /* SynthMindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SynthMindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE5B48052993174C0048D00C /* SynthMindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMindUITests.swift; sourceTree = "<group>"; };
 		FE5B48072993174C0048D00C /* SynthMindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMindUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FE5B481529931ED20048D00C /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		FE5B48182993269B0048D00C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FE5B482829940B610048D00C /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		FEF92A1B2994132C00BB53AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5B482429940AD60048D00C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +103,10 @@
 		FE5B47E92993174A0048D00C /* SynthMind */ = {
 			isa = PBXGroup;
 			children = (
+				FEF92A1B2994132C00BB53AB /* Info.plist */,
+				FE5B482729940B520048D00C /* Services */,
+				FE5B48172993268B0048D00C /* Helpers */,
+				FE5B481429931EB20048D00C /* Models */,
 				FE5B47EA2993174A0048D00C /* SynthMindApp.swift */,
 				FE5B47EC2993174A0048D00C /* ContentView.swift */,
 				FE5B47EE2993174C0048D00C /* Assets.xcassets */,
@@ -127,6 +140,30 @@
 			path = SynthMindUITests;
 			sourceTree = "<group>";
 		};
+		FE5B481429931EB20048D00C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FE5B481529931ED20048D00C /* ChatMessage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FE5B48172993268B0048D00C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FE5B48182993269B0048D00C /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FE5B482729940B520048D00C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FE5B482829940B610048D00C /* OpenAIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +180,9 @@
 			dependencies = (
 			);
 			name = SynthMind;
+			packageProductDependencies = (
+				FE5B482329940AD60048D00C /* Alamofire */,
+			);
 			productName = SynthMind;
 			productReference = FE5B47E72993174A0048D00C /* SynthMind.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +255,9 @@
 				Base,
 			);
 			mainGroup = FE5B47DE2993174A0048D00C;
+			packageReferences = (
+				FE5B482229940AD60048D00C /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = FE5B47E82993174A0048D00C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +300,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5B481629931ED20048D00C /* ChatMessage.swift in Sources */,
 				FE5B47ED2993174A0048D00C /* ContentView.swift in Sources */,
+				FE5B482929940B610048D00C /* OpenAIService.swift in Sources */,
 				FE5B47EB2993174A0048D00C /* SynthMindApp.swift in Sources */,
+				FE5B48192993269B0048D00C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,11 +466,12 @@
 				DEVELOPMENT_TEAM = V2U4YQPV4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = SynthMind/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,11 +496,12 @@
 				DEVELOPMENT_TEAM = V2U4YQPV4D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = SynthMind/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,6 +631,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE5B482229940AD60048D00C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE5B482329940AD60048D00C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE5B482229940AD60048D00C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FE5B47DF2993174A0048D00C /* Project object */;
 }
