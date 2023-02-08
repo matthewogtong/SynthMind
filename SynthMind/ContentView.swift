@@ -42,9 +42,6 @@ struct ContentView: View {
             }
         }
         .padding()
-        .onAppear {
-            openAIService.sendMessage(message: "Tell me an original idea for an anime")
-        }
     }
     
     func messageView(message: ChatMessage) -> some View {
